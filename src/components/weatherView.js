@@ -1,17 +1,24 @@
 import React from 'react'
 import {
     WeatherWrap,
+    CurrentBoxes
 } from './styles/weatherViewStyles';
 import TodaysForecast from './todayForecast';
 import TodaysWeather from './todaysWeather';
+import TwelveHour from './twelveHour';
 
 const WeatherView = (props) => {
-    const { data, today } = props;
+    const { data, today, twelve } = props;
 
     return (
         <WeatherWrap>
-            <TodaysWeather today={today} />
-            <TodaysForecast data={data} />
+            <CurrentBoxes>
+                <TodaysWeather today={today} />
+                <TodaysForecast data={data} />
+            </CurrentBoxes>
+            <div>
+                {twelve && twelve ? <TwelveHour twelve={twelve} /> : null}
+            </div>
         </WeatherWrap>
     )
 }

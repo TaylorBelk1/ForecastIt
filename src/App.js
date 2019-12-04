@@ -12,6 +12,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [weatherData, setWeatherData] = useState(null);
   const [today, setToday] = useState(null);
+  const [twelve, setTwelve] = useState(null);
 
   const handleSearch = (str, state) => {
     console.log(state)
@@ -50,11 +51,27 @@ function App() {
     const url = `http://dataservice.accuweather.com/currentconditions/v1/${key}?apikey=${process.env.REACT_APP_WEATHER_API_KEY}`
     axios.get(url)
       .then(res => {
+        console.log(res.data)
         setToday(res.data);
         setLoading(false);
       }).catch(er => {
         setLoading(false);
         console.log(er)
+      })
+
+      handleGetTwelveHour(key);
+  }
+
+  const handleGetTwelveHour = (key) => {
+    const url = ` http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${key}?apikey=${process.env.REACT_APP_WEATHER_API_KEY}`
+    axios.get(url)
+      .then(res => {
+        console.log(res.data)
+        setTwelve(res.data);
+        setLoading(false);
+      }).catch(er => {
+        setLoading(false);
+        console.log(er);
       })
   }
 
@@ -70,7 +87,7 @@ function App() {
         {
           loading ?
           <Loading />
-          : weatherData ? <WeatherView data={weatherData} today={today}/>
+          : weatherData ? <WeatherView data={weatherData} today={today} twelve={twelve} />
           : result ?
           <CityOptions data={result} handleGetWeather={handleGetWeather} handleResetSearch={handleResetSearch} />
           : <CityForm handleSearch={handleSearch} />

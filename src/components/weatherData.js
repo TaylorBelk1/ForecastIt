@@ -3,7 +3,6 @@ import { iconEnum } from './weatherIcons';
 import { Content } from './styles/weatherViewStyles';
 
 const WeatherData = (props) => {
-    console.log(props)
     const { Icon, IconPhrase } = props.data;
     const { title } = props;
     const { Maximum, Minimum } = props.temperature;
