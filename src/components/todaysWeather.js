@@ -11,7 +11,7 @@ const TodaysWeather = (props) => {
             {today && today ?
             <TodaysWeatherBox>
                 <Content>
-                    <h3>{new Date(today[0].EpochTime).toLocaleDateString()}</h3>
+                    <h3>{new Date(today[0].LocalObservationDateTime).toLocaleDateString()}</h3>
                     <img src={iconEnum[today[0].WeatherIcon]} alt='current weather' />
                     <h4>{today[0].WeatherText}</h4>
                     <p>{today[0].Temperature.Imperial.Value}&deg; {today[0].Temperature.Imperial.Unit}</p>
