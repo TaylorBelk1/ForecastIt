@@ -8,7 +8,7 @@ import TwelveHourView from './twelveHourView';
 
 const TwelveHour = (props) => {
     const { twelve } = props;
-    console.log(props)
+    console.log(twelve)
 
     return (
         <TwelveHourWrap>

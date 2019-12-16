@@ -15,12 +15,10 @@ function App() {
   const [twelve, setTwelve] = useState(null);
 
   const handleSearch = (str, state) => {
-    console.log(state)
     setLoading(true);
     const url = `http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${process.env.REACT_APP_WEATHER_API_KEY}&q=${str},${state}`;
     axios.get(url)
       .then(res => {
-        console.log(res.data)
         setResult(res.data);
         setTimeout(() => {
           setLoading(false);
@@ -51,7 +49,6 @@ function App() {
     const url = `http://dataservice.accuweather.com/currentconditions/v1/${key}?apikey=${process.env.REACT_APP_WEATHER_API_KEY}`
     axios.get(url)
       .then(res => {
-        console.log(res.data)
         setToday(res.data);
         setLoading(false);
       }).catch(er => {
@@ -66,7 +63,6 @@ function App() {
     const url = ` http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${key}?apikey=${process.env.REACT_APP_WEATHER_API_KEY}`
     axios.get(url)
       .then(res => {
-        console.log(res.data)
         setTwelve(res.data);
         setLoading(false);
       }).catch(er => {

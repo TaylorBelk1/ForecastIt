@@ -7,7 +7,7 @@ const CityOptions = props => {
     return (
         <>
             <h3>Is this your city?</h3>
-            <p>{data[0].LocalizedName}, {data[0].AdministrativeArea.EnglishName}</p>
+            <p>{data && data[0].LocalizedName}, {data && data[0].AdministrativeArea.EnglishName}</p>
             <Button onClick={() => handleGetWeather(data[0].Key)}>Yes</Button>
             <Button onClick={() => handleResetSearch()}>No</Button>
         </>
