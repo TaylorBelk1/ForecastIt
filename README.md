@@ -10,4 +10,5 @@ Forecast It is a react application built using the AccuWeather API that will ask
 - HTML5, CSS3, JSX
 
 ### Future plans:
+- Work on error message display
 - Allow for storing location so user won't have to input on every visit
