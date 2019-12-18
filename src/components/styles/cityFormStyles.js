@@ -17,6 +17,23 @@ export const InputWrap = styled.div`
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+
+    @media(max-width: 1100px) {
+        width: 60%;
+    }
+
+    @media(max-width: 900px) {
+        width: 80%;
+    }
+
+    @media(max-width: 600px) {
+        width: 95%;
+    }
+
+    @media(max-width: 450px) {
+        width: 95%;
+        flex-direction: column;
+    }
 `
 
 export const InputField = styled.input`
@@ -31,6 +48,10 @@ export const InputField = styled.input`
     &:focus {
         outline: none;
     }
+
+    @media(max-width: 450px) {
+        width: 80%;
+    }
 `
 
 export const Button = styled.button`
@@ -43,3 +64,5 @@ export const Button = styled.button`
     font-size: 18px;
     color: #fff;
 `
+
+//  #TODO: wrap for yes/no buttons to flex-direction column @ 400px
